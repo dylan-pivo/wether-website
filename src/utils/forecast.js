@@ -9,8 +9,8 @@ const forecast = (lat, long, callback) => {
         } else if (body.error) {
             callback(body.error, undefined)
         } else {
-            const { temperature: temp, precipProbability: precipProb } = body.currently
-            callback(undefined, 'It is currently ' + temp + ' degrees out, there is ' + precipProb + '% chance of rain')
+            const { temperature: temp, precipProbability: precipProb, windSpeed: wind } = body.currently
+            callback(undefined, 'It is currently ' + temp + ' degrees out, the wind is blowing at ' + wind + 'mph and there is ' + precipProb + '% chance of rain')
         }
     })
 }
